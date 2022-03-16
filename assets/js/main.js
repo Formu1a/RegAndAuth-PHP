@@ -72,6 +72,7 @@ $('.register-btn').click(function (e) {
 
 
 
+
     $.ajax({
         url:'vendor/signup.php',
         type: 'POST',
@@ -89,6 +90,7 @@ $('.register-btn').click(function (e) {
                     data.fields.forEach(function (field){
                         $(`input[name="${field}"]`).addClass('error');
                     });
+
                 }
                 $('.msg').removeClass('none').text(data.message);
             }

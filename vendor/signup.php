@@ -8,7 +8,17 @@
     $password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
 
+    $arr = array('login'=>$login,
+        'email'=>$email,
+        'full_name'=>$full_name,
+        'password'=>$password,
+        'password_confirm'=>$password_confirm);
+
+    $dataJson = file_put_contents('../dataBase/data.json', json_encode($arr),FILE_APPEND);
+
+
     $check_login = mysqli_query($connect, "SELECT * FROM `users` WHERE `login` = '$login'");
+
 
     if (mysqli_num_rows($check_login)>0){
         $response = [

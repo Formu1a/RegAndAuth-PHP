@@ -5,6 +5,14 @@
     $login = $_POST['login'];
     $password = $_POST['password'];
 
+    $arr = array('login'=>$login,
+        'password'=>$password);
+
+    $dataJson = file_put_contents('../dataBase/data2.json', json_encode($arr),FILE_APPEND);
+
+    $deData = file_get_contents('../dataBase/data.json');
+
+
     $error_fields = [];
 
     if ($login === ''){
@@ -57,3 +65,5 @@
 
         echo json_encode($response);
     }
+?>
+
